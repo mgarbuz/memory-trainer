@@ -1,149 +1,265 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-<meta charset="utf-8" />
-<title>виртуальный музей</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <style type='text/css'>
+            #test{
+                display:none;
+            }
+            #circle_red {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: red;
+	  border: 1px solid #000
+    }
+      #circle_yellow {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: yellow;
+	  border: 1px solid #000
+    }
+      #circle_green {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: green;
+	  border: 1px solid #000
+    }
+      #circle_grey {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: white;
+	  border: 1px solid #000
+    }
+    </style>
 
-
-<style>
-body{
-  background:#c0c0c0; /* Меняется фон экрана, выбирается здесь */
-}
-
-#wrapper{ /* Оболочка страницы сайта */
-  width: 1220px; /* Меняется ширина страницы */
-  margin: 0 auto;
-  background:#f2e8c9; /* Меняется задний фон страницы */
-}
-
-/* Шапка сайта */
-
-#header{
-position:relative; /* Задаём блоку относительное позиционирование для того, чтобы затем размещать, в нём другие элементы 
-и позиционировать относительно его границ поверх фоновой картинки и заголовка */
-  height: 40px; /* Высота шапки */
-  background-color: #ffffff; /* Фон шапки */
-   margin-bottom: 5px; /* Нижний отступ шапки от остального контента */
-  border-radius: 5px; /* Закругляются углы блока */
-  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* Тень. Визуально приподнимает блок над оболочкой */
-}
-img{ /* Фоновая картинка в шапке */
-float: left; /* Разрешаем наплывание других элементов на картинку */
-  margin: -40px 0 10 0;} /* Размещаем картинку в блоке header. 1-я и 3-я цифры - двигаем вверх-вниз, 2-я и 4-я цифры - двигаем вправо-влево */
-h1{ /* Заголовок сайта */
-  margin:0 0 10px 40px; /* Заголовок двигается верх-вправо-вниз-влево. */
-  color:#464451; /* Цвет заголовка */
-}
-.nomer{ /*Подзаголовок (номер телефона)*/
-  position:absolute; /* Позиционируем абсолютно подзаголовок, относительно границ блока header. Также можно разместить в шапке сайта ещё другие
-  картинки и абзацы поверх фоновой картинки и заголовка */
-  top:5px; /* Двигается вверх-вниз */
-  left:680px; /* Двигается вправо-влево */
-  font-size: 25px; /* Размер букв подзаголовка */
-  font-style:italic; /* Курсив */
-  font-weight:bold; /* Жирный */
-  color:#464451; /* Цвет букв подзаголовка */
-}
-
-/* Сайдбар (колонка справа) */
-
-/*#sidebar{  Блок сайдбара 
-  background-color: #ffffff; /* Фон блока */
-  width: 180px; /* Ширина блока */
-  padding: 10px; /* Отступ текста от краёв */
-  float: right; /* Размещаем блок справа от других элементов, наплывание или обтекание справа). Если делать сайдбар слева, то значение right меняем на left */
-  border-radius: 5px; /* Закругляем углы блока */
-  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* Задаём блоку тень */
-}*/
-.marcer{ /* Галочки маркеры меню */
-  float: left; /* Размещаем слева от текста */
-  margin: 5px 5px 0 0; /* Двигаются вверх-вправо-вниз-влево */
-}
-
-/* Контент (статья) */
-
-#content{ /* Блок контента */
-  margin-bottom: 5px; /* Отступ блока статьи от блока подвала */
-  width: 1200px; /* Ширина статьи */
-  padding: 10px; /* Отступ текста от краёв блока */
-  background: #ffffff; /* Фон статьи */
-  border-radius: 5px;
-  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;
-}
-.left{ /* Картинка в тексте слева */
-  float: left;
-  margin: 30px 7px 7px 7px;
-}
-.right{ /* Картинка в тексте справа */
-  float: right;
-  margin: 7px 0 7px 7px;
-}
-/* Подвал */
-
-#footer{ /* Блок подвала */
-  height:40px; /* Высота блока подвала */
-  background-color: #ffffff; /* Фон блока подвала */
-  margin-bottom: 1px; /* Отступ снизу */
-  border-radius: 5px; /* Закруглённые углы */
-  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* Тень блока */
-}
-.clear{ /* Запрет наплывания. Устанавливается для того, чтобы блок контента, при заполнении текстом и изображениями не наплывал на подвал */
-  clear: both;
-}
-  .fon{ /* Номер телефона */
-  float:left; /* Разрешаем другим элементам обтекать абзац справа */
-  margin:20px 0 0 20px;
-}
-.fax{ /* Номер факса */
-  float:left;
-  margin:20px 0 0 60px;
-}
-.mail{ /* Адрес E-mail */
-  float:left;
- margin:20px 0 0 60px;
-}
-</style>
 </head>
 <body>
-  <div id="wrapper"> <!--Оболочка страницы-->
-<!--Шапка сайта-->
-    <div id="header">
-<!--Заголовок сайта-->
-     <center>  <h1>Шагающий механизм с ветроприводом</h1></center> 
-    </div>
 
-<!--Основной контент (статья)-->
-    <div id="content">
-<!--Картинка слева-->
-      <img class="left" src="логотип института.png" width="30">
-<!--Заголовок статьи-->
-       <center> <h2>Здравствуйте, уважаемые коллеги!</h2></center>
-<!--Текст статьи-->
-<center>
-<div class="sketchfab-embed-wrapper"> <iframe title="Plantigrade wind powered machine" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1100" height="600" src="https://sketchfab.com/models/93e4c855ddd84614a915b0ddd0fca3f3/embed?autostart=1"> </iframe> </div></center>
+<h1>
+    <time>00:00:00</time>
+</h1>
+<div id="main_panel"/>
+<div id="second_panel"/>
+<button id="strt">start</button>
+<button id="agn">again</button>
+<button id="nxt">next</button>
+<button id="chk">check</button>
 
-<p> Эта страница является дополнением к докладу о 
-шагающем механизме с ветроприводом!</p>
-<p></p>
 
-<!--Картинка справа-->
-  <!--    <img class="right" src="plantigrade.jpg"  width="270" alt=""/> -->
-<p>Цель нашей работы заключалась в создании шагающего аппарата, способного передвигаться прямолинейно под действием потока, за счёт энергии, отбираемой у этого потока.
-За основу мы выбрали механизм П.Л. Чебышёва, а для взаимодействия со средой добавили к ней пропеллер и угловой редуктор.</p>
+<canvas id="myCanvas" width="700" height="200">
+    Ваш браузер не поддерживает Canvas
+</canvas>
 
-<p>Конструкция классического механизма Чебышёва была изменена.
-Общий процесс разработки и сборки занял более четырёх месяцев: создавались чертежи, подбирались размеры, материалы соединений, подшипники. </p>
-<p>На сегодняшний день изготовлен 
-демонстрационный макет, с трёхмерной моделью которого Вы можете ознакомиться в главном окне страницы.</p>
+<script type='text/javascript'>
 
 
 
-<!--Подвал-->
-    <div id="footer">
-	  <p class="mail"><strong><center>Буду рад обратной связи!<br>misha-garbuz@yandex.ru<center></center></strong></p>
-    </div>
-  </div>
+
+            const color= ['red','green','yellow'];
+            var image = document.getElementById("myCanvas");
+            var randoms = Array.from({length: 20}, () => Math.floor(Math.random() * 3));	
+			for (var j = 0; j < 17; j+=3) {//проверка того, что нет трёх одинаковых цветов подряд в первой фазе
+				if((randoms[j]==randoms[j+1]) && (randoms[j+1]==randoms[j+2])){
+					randoms[j]=0;
+					randoms[j+1]=2;
+					randoms[j+2]=1;
+					}
+				}
+
+			for (var j = 0; j < 12; j+=3) {//проверка того, что нет двух подряд одинаковых троек. НЕ РАБОТАЕТ
+				if((randoms[j]==randoms[j+3]) && (randoms[j+1]==randoms[j+4])&& (randoms[j+2]==randoms[j+5])){
+					randoms[j]=0;
+					randoms[j+1]=2;
+					randoms[j+1]=1;
+					randoms[j+3]=1;
+					randoms[j+4]=2;
+					randoms[j+5]=0;
+					}
+				}	
+			for (var j = 15; j < 18; j++) {//проверка того, что в последних пяти кружках нет трёх подряд одинаковых цветов
+				if((randoms[j]==randoms[j+1]) && (randoms[j+1]==randoms[j+2])){
+					randoms[j]=1;
+					randoms[j+1]=0;
+					randoms[j+2]=2;
+					}
+				}				
+            var p = 0;
+
+            var i = 0, s = ["block","none"], t = [2000,1000]; //2 сек есть картинка, 1 сек нет
+            var count = 0;
+            var canvas = document.getElementById("myCanvas"), 
+            context = canvas.getContext('2d');
+            
+            function switchColor(number) {
+               var str_res = "";
+               var color = document.getElementById('data_' + number).innerHTML;
+               var r = color;
+               if(r == 0) str_res += "<div id=\"circle_red\"></div>";
+               if(r == 1) str_res += "<div id=\"circle_yellow\"></div>";
+               if(r == 2) str_res += "<div id=\"circle_green\"></div>";
+               color++;
+               document.getElementById("data_" + number).innerHTML=color%3;
+               document.getElementById("circle_" + number).innerHTML = str_res;
+        }
+
+
+            window.onload = function(){
+
+            var h1 = document.getElementsByTagName('h1')[0];
+            var start = document.getElementById('strt');
+            var next = document.getElementById('nxt');
+            var check = document.getElementById('chk');
+            var again = document.getElementById('agn');
+            var milisec = 0;
+            var sec = 0;
+            var min = 0;
+            var time;
+            
+            function clearTime() {
+                   milisec = 0; sec = 0; min = 0;
+            }
+
+            function tick(){
+		    milisec+=10;
+		    if (milisec >= 100) {
+			    milisec = 0;
+			    sec++;
+			    if (sec >= 60) {
+				    sec = 0;
+				    min++;
+			    }
+		    }
+            }
+
+            function add() {
+		    tick();
+		    h1.textContent = (min > 9 ? min : "0" + min) 
+		    + ":" + (sec > 9 ? sec : "0" + sec)
+		    + ":" + (milisec > 9 ? milisec : "0" + milisec);
+		    timer();
+            }
+
+            function timer() {
+            	time = setTimeout(add, 100);
+            }
+
+            //timer();
+            //show();
+			start.onclick = function() {
+			clearInterval();
+			//document.getElementById("main_panel").innerHTML = "<button id='chk'>check</button>";
+		    timer();
+		    show();
+            }
+
+            check.onclick = function() {
+            	//clearTimeout(time);
+               document.getElementById("main_panel").innerHTML=generateTable();
+			   document.getElementById("second_panel").innerHTML="123";
+            }
+
+            next.onclick = function() {
+			image.style.display = "none";
+			p=14;
+			phase2();
+            }
+            again.onclick = function() {
+		    p=0;
+		    count=0;
+		    i=0;
+		    show();
+            }
+
+
+
+            function drawCircle(i, j, k, l , color) {
+                   context.beginPath();
+		    context.arc(i, j, k, l, Math.PI*2, false);
+		    context.closePath();
+		    context.stroke();
+		    context.fillStyle = color;
+		    context.fill();
+            }
+
+            function show()
+            {
+		    i ^= 1
+		    if(i == 0) {
+		    	p += 3;
+		    }
+		    image.style.display = s[i];
+		    
+		    if (count < 10) {
+			count += 1;
+			setTimeout(show,t[i]);
+		    } else {
+			//phase2();
+			//timer();
+		    }
+
+                   drawCircle(60, 90, 50, 0, color[randoms[p]]);
+                   drawCircle(200, 90, 50, 0, color[randoms[p+1]]);
+                   drawCircle(350, 90, 50, 0, color[randoms[p+2]]);
+            }
+
+	     function phase2() {
+                   //clearTime();
+                   setTimeout(phase3, 1000);
+	     }
+             
+             function phase3() {
+                   //clearTimeout(time);
+                   drawCircle(60, 90, 50, 0, color[randoms[p]]);
+                   drawCircle(200, 90, 50, 0, color[randoms[p+1]]);
+                   drawCircle(350, 90, 50, 0, color[randoms[p+2]]);
+                   drawCircle(500, 90, 50, 0, color[randoms[p+3]]);
+                   drawCircle(650, 90, 50, 0, color[randoms[p+4]]);
+                   image.style.display = "block";
+             }
+
+            //show()
+
+            function generateTable() {
+			 document.getElementById("main_panel").innerHTML = "123456";
+               var result = "<table>" 
+                            + generateRow(0)
+                            + generateRow(5)
+                            + generateRow(10)
+                            + generateRow(15)
+                            + "</table>";
+               return result;
+        }
+        function generateRow(row) {
+               var result = "<tr>" 
+                          + generateCell(row+0) + generateCell(row+1) + generateCell(row+2) + generateCell(row+3) + generateCell(row+4)
+			   + "</tr>";
+               return result;
+        }
+        function generateCell(id) {
+               var result = "<th id=\""+id + "\" onclick=\"switchColor('" + id + "')\">\
+                   <div id=\"data_" + id + "\" style=\"display:none\">" + 0 + "</div>\
+                   <div id=\"circle_" + id + "\">\
+                        <div id=\"circle_grey\"></div>\
+                   </div>\
+               </th>";
+               return result;
+        }
+
+            }					
+
+</script>
 </body>
 </html>
-
-      
