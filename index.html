@@ -103,6 +103,45 @@
     background-color: none;
     height: 150px;
 }
+
+
+
+#con21{
+    width: 150px;
+    border: 0px solid black;
+    background-color: none;
+    height: 150px;
+    border-right: 0px;
+}
+#con22{
+    width: 150px;
+    border: 0px solid black;
+    background-color: none;
+    height: 150px;
+}
+#con23{
+    width: 150px;
+    border: 0px solid black;
+    border-left: 0px;
+    background-color: none;
+    height: 150px;
+}
+#con24{
+    width: 150px;
+    border: 0px solid black;
+    border-left: 0px;
+    background-color: none;
+    height: 150px;
+}
+#con25{
+    width: 150px;
+    border: 0px solid black;
+    border-left: 0px;
+    background-color: none;
+    height: 150px;
+}
+
+
 #myCanvas
 {
     display: block;
@@ -114,14 +153,24 @@
 </head>
 <body>
 <center>
-
 <font size='6'>
 <h1>
 <time>00:00:00</time>
 </h1></font>
+
+<div id="phase3" style="display:none"><font size='5'>Введите ответ. Кружочки меняют цвет при нажатии!</font></div>
 <div id="main_panel"></div>
+<div id="phase1" style="display:none"><font size='5'>Запомните первые 15 цветов!</font></div>
+<div id="phase0" style="display:block">
+<font size='5'>Задача - запомнить и воспроизвести в правильном порядке последовательность из 20 кружков красного, жёлтого и зелёного цветов.
+ На первом этапе появляются 15 кружочков по три, на втором - 5 кружков. Результат считывается до первой ошибки. Удачи!
+ 
+ 
+ </font></div>
+
 <div id="second_panel">
-<button id="strt" style="height:100px;width:200px;"><font size='7'>СТАРТ</font></button>
+
+<button id="strt" style="height:100px;width:200px;margin-top: 5%;"><font size='7'>СТАРТ</font></button>
 
 
 <button id="chk" style="display:none;height:100px;width:150px"><font size='7'>ВВОД</font></button>
@@ -139,6 +188,22 @@
     <div id="con2"></div>
     <div id="con3"><button id="nxt" style="display:none;height:100px;width:250px"><font size='7'>ДАЛЕЕ</font></button></div>
 </div>
+
+
+  <div><font size='5'> Присоединяйтесь!</font></div>
+  <div class="container">
+    <div id="con21"><p><a href="https://vk.com/m_garbuz"><img src="vk.png" width="100" 
+   height="100" alt="Пример"></a></p></div>
+    <div id="con22"><p><a href="https://t.me/math_garbuz"><img src="tg.png" width="100" 
+   height="100" alt="Пример"></a></p></div>
+    <div id="con23"><p><a href="https://yappy.media/profile/620b0c1492294148a0b62e6727001a68?utm_source=url&utm_medium=share"><img src="yappi.png" width="100" 
+   height="100" alt="Пример"></a></p></div>
+   <div id="con24"><p><a href="https://vk.com/razgon_praktika"><img src="razgon.png" width="100" 
+   height="100" alt="Пример"></a></p></div>
+   <div id="con25"><p><a href="instagram.com/mish_garbuz"><img src="inst.png" width="100" 
+   height="100" alt="Пример"></a></p></div>
+</div>
+
 <script type='text/javascript'>
 
             const color= ['red','yellow','green'];
@@ -205,7 +270,7 @@
             }
 
             function drawTableByArray(array, rows, columns) {
-               var result = "<font size='6'>Правильный ответ:</font> \n\n\n <table>";
+               var result = "<font size='7'>Правильный ответ:</font> \n\n\n <table>";
                for (let i = 0; i < rows; i++) {
                    result += "<tr>";
                    for (let j = 0; j < columns; j++) {
@@ -267,6 +332,8 @@
 			start.onclick = function() {
 			clearInterval();
 			document.getElementById("strt").style.display = "none";
+			document.getElementById("phase0").style.display = "none";
+			document.getElementById("phase1").style.display = "block";
 			//document.getElementById("main_panel").innerHTML = "<button id='chk'>check</button>";
 		    timer();
 		    show();
@@ -275,6 +342,7 @@
             check.onclick = function() {
             	//clearTimeout(time);
 			   image.style.display = "none";
+			   document.getElementById("phase3").style.display = "block";
                document.getElementById("main_panel").innerHTML=generateTable();
                document.getElementById("second_panel").style.display = "none";
                document.getElementById("finish").style.display = "block";
@@ -288,6 +356,7 @@
 			phase2();
             }
             again.onclick = function() {
+			document.getElementById("phase1").style.display = "block";
 			document.getElementById("nxt").style.display = "none";
 			document.getElementById("agn").style.display = "none";
 		    p=0;
@@ -320,6 +389,7 @@
                    if (p >= 15) {
                       document.getElementById("agn").style.display = "block";
 					  document.getElementById("nxt").style.display = "block";
+					  document.getElementById("phase1").style.display = "none";
                       return;
                    }                   
                    drawCircle(210, 90, 50, 0, color[randoms[p]]);
