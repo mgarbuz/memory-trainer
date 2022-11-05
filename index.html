@@ -158,9 +158,9 @@
 <time>00:00:00</time>
 </h1></font>
 
-<div id="phase3" style="display:none"><font size='5'>Введите ответ. Кружочки меняют цвет при нажатии!</font></div>
+<div id="phase3" style="display:none"><font size='5'>Введите ответ. Кружочки меняют цвет при нажатии.</font></div>
 <div id="main_panel"></div>
-<div id="phase1" style="display:none"><font size='5'>Запомните первые 15 цветов!</font></div>
+<div id="phase1" style="display:none"><font size='5'>Запомните первые 15 цветов.</font></div>
 <div id="phase0" style="display:block">
 <font size='5'>Задача - запомнить и воспроизвести в правильном порядке последовательность из 20 кружков красного, жёлтого и зелёного цветов.
  На первом этапе появляются 15 кружочков по три, на втором - 5 кружков. Результат считывается до первой ошибки. Удачи!
@@ -190,17 +190,17 @@
 </div>
 
 
-  <div><font size='5'> Присоединяйтесь!</font></div>
-  <div class="container">
-    <div id="con21"><p><a href="https://vk.com/m_garbuz"><img src="vk.png" width="100" 
+  <div id="follow" style="display:none;"><font size='5'> Присоединяйтесь!</font></div>
+  <div id="references" class="container">
+    <div id="con21" style="display:none;"><p><a href="https://vk.com/m_garbuz"><img src="vk.png" width="100" 
    height="100" alt="Пример"></a></p></div>
-    <div id="con22"><p><a href="https://t.me/math_garbuz"><img src="tg.png" width="100" 
+    <div id="con22" style="display:none;"><p><a href="https://t.me/math_garbuz"><img src="tg.png" width="100" 
    height="100" alt="Пример"></a></p></div>
-    <div id="con23"><p><a href="https://yappy.media/profile/620b0c1492294148a0b62e6727001a68?utm_source=url&utm_medium=share"><img src="yappi.png" width="100" 
+    <div id="con23" style="display:none;"><p><a href="https://yappy.media/profile/620b0c1492294148a0b62e6727001a68?utm_source=url&utm_medium=share"><img src="yappi.png" width="100" 
    height="100" alt="Пример"></a></p></div>
-   <div id="con24"><p><a href="https://vk.com/razgon_praktika"><img src="razgon.png" width="100" 
+   <div id="con24" style="display:none;"><p><a href="https://vk.com/razgon_praktika"><img src="razgon.png" width="100" 
    height="100" alt="Пример"></a></p></div>
-   <div id="con25"><p><a href="instagram.com/mish_garbuz"><img src="inst.png" width="100" 
+   <div id="con25" style="display:none;"><p><a href="instagram.com/mish_garbuz"><img src="inst.png" width="100" 
    height="100" alt="Пример"></a></p></div>
 </div>
 
@@ -266,7 +266,7 @@
                    score++;
                }
                document.getElementById("result").innerHTML = drawTableByArray(randoms, 4, 5);
-               alert('Ваш результат: ' + score + '\nВаше время: ' + (min > 9 ? min : "0" + min) + ':' + sec + ':' + milisec);
+               alert('Ваш результат: ' + score + '\nВаше время: ' + (min > 9 ? min : "0" + min) + ':' + sec + ':' + milisec + '\n\n P.S.: Подписывайтесь на мои соцсети! Ссылки внизу:) ');
             }
 
             function drawTableByArray(array, rows, columns) {
@@ -372,6 +372,12 @@
                        for (let i = 0; i < 20; i++) {
                            document.getElementById(i).onclick = "";
                        }
+			document.getElementById("follow").style.display = "block";
+			document.getElementById("con21").style.display = "block";	
+			document.getElementById("con22").style.display = "block";
+			document.getElementById("con23").style.display = "block";
+			document.getElementById("con24").style.display = "block";
+			document.getElementById("con25").style.display = "block";
             }
 
 
